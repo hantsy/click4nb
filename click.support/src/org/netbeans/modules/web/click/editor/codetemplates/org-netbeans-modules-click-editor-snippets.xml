@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
+    <codetemplate abbreviation="pages" xml:space="preserve">
+        <code><![CDATA[<pages>
+    <page path="${cursor}" classname=""/>
+</pages>]]>
+        </code>
+        <description><![CDATA[Inserts pages element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="page" xml:space="preserve">
+        <code><![CDATA[<page path="${cursor}" classname=""/>]]>
+        </code>
+        <description><![CDATA[Inserts page element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="format" xml:space="preserve">
+        <code><![CDATA[<format classname="${cursor}"/>]]>
+        </code>
+        <description><![CDATA[Inserts format element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="fus" xml:space="preserve">
+        <code><![CDATA[<file-upload-service classname="${cursor}"/>]]>
+        </code>
+        <description><![CDATA[Inserts file-upload-service element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="ls" xml:space="preserve">
+        <code><![CDATA[<log-service classname="${cursor}"/>]]>
+        </code>
+        <description><![CDATA[Inserts log-service element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="ts" xml:space="preserve">
+        <code><![CDATA[<template-service classname="${cursor}"/>]]>
+        </code>
+        <description><![CDATA[Inserts template-service element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="controls" xml:space="preserve">
+        <code><![CDATA[<controls>
+    <control classname="${cursor}"/>
+</controls>]]>
+        </code>
+        <description><![CDATA[Inserts controls element]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="control" xml:space="preserve">
+        <code><![CDATA[<control classname="${cursor}"/>]]>
+        </code>
+        <description><![CDATA[Inserts control element]]>
+        </description>
+    </codetemplate>
+</codetemplates>

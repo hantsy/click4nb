@@ -1,0 +1,18 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+package ${package};
+
+import java.util.Date;
+import org.apache.click.Page;
+
+public class Home extends Page{
+    private Date time = new Date(); 
+
+    public Home() {
+        addModel("time", time);
+    }
+}

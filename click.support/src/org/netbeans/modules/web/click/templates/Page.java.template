@@ -1,0 +1,20 @@
+<#if package?exists>package ${package};</#if>
+<#if template=="simple-form">
+import org.apache.click.control.Form;
+</#if>
+
+public class ${classname} extends ${superclass} {
+
+<#if template=="simple-form">
+    private Form form = new Form("form");
+
+    public ${classname}(){
+        addControl(form);
+    }
+<#else>
+    public ${classname}(){
+
+    }
+</#if>
+
+}

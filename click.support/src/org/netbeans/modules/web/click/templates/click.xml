@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE click-app PUBLIC
+       "-//Apache Software Foundation//DTD Click Configuration 2.2//EN"
+       "http://click.apache.org/dtds/click-2.2.dtd">
+<click-app>
+<#if package?exists>
+    <pages package="${package}"/>
+</#if>
+<#if mode?exists>
+    <mode value="${mode}"/>
+</#if>
+</click-app> 

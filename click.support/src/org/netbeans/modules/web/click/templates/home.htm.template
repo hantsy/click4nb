@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="style.css" title="Style"/>
+</head>
+
+<body>
+
+  <div id="header">
+    <span id="title">Home</span>
+  </div>
+
+  <div id="container">
+    Greetings from Click Framework at $time.
+  </div>
+
+</body>
+</html> 

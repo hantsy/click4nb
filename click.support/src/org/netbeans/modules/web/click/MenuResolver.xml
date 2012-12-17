@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE MIME-resolver PUBLIC "-//NetBeans//DTD MIME Resolver 1.1//EN" "http://www.netbeans.org/dtds/mime-resolver-1_1.dtd">
+<MIME-resolver>
+    <file>
+        <ext name="xml"/>
+        <resolver mime="text/x-click-menu+xml">
+            <xml-rule>
+                <doctype public-id="-//Apache Software Foundation//DTD Click Menu 2.2//EN"/>
+            </xml-rule>
+        </resolver>
+    </file>
+    <file>
+        <ext name="xml"/>
+        <resolver mime="text/x-click-menu+xml">
+            <xml-rule>
+                <!-- <doctype public-id="-//Apache Software Foundation//DTD Click Menu Configuration 2.1//EN"/>-->
+                <element name="menu"/>
+            </xml-rule>
+        </resolver>
+    </file>
+</MIME-resolver>

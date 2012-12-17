@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="File">
+            <file name="org-netbeans-modules-web-click-actions-GotoClassAction.instance"/>
+            <file name="org-netbeans-modules-web-click-actions-GotoPageAction.instance"/>
+            <file name="org-netbeans-modules-web-click-actions-GotoPropertiesAction.instance"/>
+        </folder>
+    </folder>
+    <folder name="Loaders">
+        <folder name="text">
+            <folder name="x-click-app+xml">
+                <folder name="Actions">
+                    <file name="org-openide-actions-CopyAction.instance">
+                        <attr name="position" intvalue="400"/>
+                    </file>
+                    <file name="org-openide-actions-CutAction.instance">
+                        <attr name="position" intvalue="300"/>
+                    </file>
+                    <file name="org-openide-actions-DeleteAction.instance">
+                        <attr name="position" intvalue="600"/>
+                    </file>
+                    <file name="org-openide-actions-FileSystemAction.instance">
+                        <attr name="position" intvalue="1100"/>
+                    </file>
+                    <file name="org-openide-actions-OpenAction.instance">
+                        <attr name="position" intvalue="100"/>
+                    </file>
+                    <file name="org-openide-actions-PropertiesAction.instance">
+                        <attr name="position" intvalue="1400"/>
+                    </file>
+                    <file name="org-openide-actions-RenameAction.instance">
+                        <attr name="position" intvalue="700"/>
+                    </file>
+                    <file name="org-openide-actions-SaveAsTemplateAction.instance">
+                        <attr name="position" intvalue="900"/>
+                    </file>
+                    <file name="org-openide-actions-ToolsAction.instance">
+                        <attr name="position" intvalue="1300"/>
+                    </file>
+                    <file name="sep-1.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="200"/>
+                    </file>
+                    <file name="sep-2.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="500"/>
+                    </file>
+                    <file name="sep-3.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="800"/>
+                    </file>
+                    <file name="sep-4.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1000"/>
+                    </file>
+                    <file name="sep-5.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1200"/>
+                    </file>
+                </folder>
+                <folder name="Factories">
+                    <file name="org.netbeans.modules.web.click.ClickDataObject.instance">
+                        <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/netbeans/modules/web/click/resources/click-icon.png"/>
+                        <attr name="dataObjectClass" stringvalue="org.netbeans.modules.web.click.ClickDataObject"/>
+                        <attr name="instanceCreate" methodvalue="org.openide.loaders.DataLoaderPool.factory"/>
+                        <attr name="mimeType" stringvalue="text/x-click-app+xml"/>
+                    </file>
+                </folder>
+            </folder>
+            <folder name="x-click-menu+xml">
+                <folder name="Actions">
+                    <file name="org-openide-actions-CopyAction.instance">
+                        <attr name="position" intvalue="400"/>
+                    </file>
+                    <file name="org-openide-actions-CutAction.instance">
+                        <attr name="position" intvalue="300"/>
+                    </file>
+                    <file name="org-openide-actions-DeleteAction.instance">
+                        <attr name="position" intvalue="600"/>
+                    </file>
+                    <file name="org-openide-actions-FileSystemAction.instance">
+                        <attr name="position" intvalue="1100"/>
+                    </file>
+                    <file name="org-openide-actions-OpenAction.instance">
+                        <attr name="position" intvalue="100"/>
+                    </file>
+                    <file name="org-openide-actions-PropertiesAction.instance">
+                        <attr name="position" intvalue="1400"/>
+                    </file>
+                    <file name="org-openide-actions-RenameAction.instance">
+                        <attr name="position" intvalue="700"/>
+                    </file>
+                    <file name="org-openide-actions-SaveAsTemplateAction.instance">
+                        <attr name="position" intvalue="900"/>
+                    </file>
+                    <file name="org-openide-actions-ToolsAction.instance">
+                        <attr name="position" intvalue="1300"/>
+                    </file>
+                    <file name="sep-1.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="200"/>
+                    </file>
+                    <file name="sep-2.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="500"/>
+                    </file>
+                    <file name="sep-3.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="800"/>
+                    </file>
+                    <file name="sep-4.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1000"/>
+                    </file>
+                    <file name="sep-5.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1200"/>
+                    </file>
+                </folder>
+                <folder name="Factories">
+                    <file name="org.netbeans.modules.web.click.MenuDataObject.instance">
+                        <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/openide/loaders/xmlObject.gif"/>
+                        <attr name="dataObjectClass" stringvalue="org.netbeans.modules.web.click.MenuDataObject"/>
+                        <attr name="instanceCreate" methodvalue="org.openide.loaders.DataLoaderPool.factory"/>
+                        <attr name="mimeType" stringvalue="text/x-click-menu+xml"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="GoTo">
+            <file name="org-netbeans-modules-web-click-actions-GotoPageAction-separatorBefore.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="650"/>
+            </file>
+            <file name="org-netbeans-modules-web-click-actions-GotoPageAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPageAction.instance"/>
+                <attr name="position" intvalue="675"/>
+            </file>
+            <file name="org-netbeans-modules-web-click-actions-GotoClassAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoClassAction.instance"/>
+                <attr name="position" intvalue="693"/>
+            </file>
+            <file name="org-netbeans-modules-web-click-actions-GotoPropertiesAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPropertiesAction.instance"/>
+                <attr name="position" intvalue="687"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Services">
+        <folder name="MIMEResolver">
+            <file name="org-netbeans-modules-web-click-ClickResolver.xml" url="ClickResolver.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            </file>
+            <file name="org-netbeans-modules-web-click-MenuResolver.xml" url="MenuResolver.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Templates">
+        <folder name="Click">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            <file name="ClickPage" url="templates/Page.java.template">
+                <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/netbeans/modules/java/resources/class.gif"/>
+                <attr name="instantiatingIterator" newvalue="org.netbeans.modules.web.click.wizards.ClickPageWizardIterator"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateCategory" stringvalue="servlet-types"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/netbeans/modules/web/click/wizards/clickPage.html"/>
+            </file>
+
+            <file name="ClickTemplate.xml" url="templates/click.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateCategory" stringvalue="servlet-types"/>
+            </file>
+            <file name="MenuTemplate.xml" url="templates/menu.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateCategory" stringvalue="servlet-types"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="j2ee">
+        <folder name="webtier">
+            <folder name="framework">
+                <file name="org-netbeans-modules-web-click-ClickFrameworkProvider.instance"/>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Plugins">
+        <folder name="XML">
+            <folder name="UserCatalogs">
+                <file name="org-netbeans-modules-web-click-ClickCatalog.instance">
+                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                    <attr name="instanceCreate" newvalue="org.netbeans.modules.web.click.ClickCatalog"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.modules.xml.catalog.spi.CatalogReader"/>
+                </file>
+            </folder>
+            <folder name="GrammarQueryManagers">
+                <file name="org-netbeans-modules-web-click-grammar-ClickGrammarQueryProvider.instance">
+                    <attr name="position" intvalue="1300"/>
+                </file>
+                <file name="org-netbeans-modules-web-click-grammar-MenuGrammarQueryProvider.instance">
+                    <attr name="position" intvalue="1400"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="ClickFramework">
+        <folder name="Templates">
+
+            <!--PageClass template-->
+            <file name="Page.java" url="templates/Page.java.template">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+
+            <file name="Page.htm" url="templates/Page.htm.template">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+            <file name="Page.jsp" url="templates/Page.htm.template">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+            <file name="style.css" url="templates/style.css.template">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+             <file name="Home.java" url="templates/Home.java.template">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+
+            <file name="home.htm" url="templates/home.htm.template">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+            <file name="click.xml" url="templates/click.xml">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+            <file name="applicationContext.xml" url="templates/applicationContext.xml">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+            <file name="redirect.html" url="templates/redirect.html">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="false"/>
+            </file>
+            <file name="menu.xml" url="templates/menu.xml">
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+                <attr name="template" boolvalue="false"/>
+            </file>
+        </folder>
+    </folder>
+
+    <folder name="Editors">
+        <folder name="text">
+            <!--<folder name="text">
+                <folder name="x-clickapp+xml">
+
+                </folder>
+            </folder>-->
+            <folder name="html">
+                <folder name="Popup">
+                    <folder name="goto">
+                        <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                        <file name="org-netbeans-modules-web-click-actions-GotoClassAction-separatorAfter.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="850"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoClassAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoClassAction.instance"/>
+                            <attr name="position" intvalue="800"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoPropertiesAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPropertiesAction.instance"/>
+                            <attr name="position" intvalue="825"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+            <folder name="x-jsp">
+                <folder name="Popup">
+                    <folder name="goto">
+                        <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                        <file name="org-netbeans-modules-web-click-actions-GotoClassAction-separatorAfter.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="850"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoClassAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoClassAction.instance"/>
+                            <attr name="position" intvalue="800"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoPropertiesAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPropertiesAction.instance"/>
+                            <attr name="position" intvalue="825"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+           <!-- <folder name="x-properties">
+                <folder name="Popup">
+                    <folder name="goto">
+                        <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                        <file name="org-netbeans-modules-web-click-actions-GotoClassAction-separatorAfter.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="850"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoClassAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoClassAction.instance"/>
+                            <attr name="position" intvalue="800"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoPageAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPageAction.instance"/>
+                            <attr name="position" intvalue="825"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>-->
+            <folder name="x-click-app+xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                <folder name="HyperlinkProviders">
+                    <file name="org-netbeans-modules-web-click-editor-hyperlinks-ClickHyperlinkProvider.instance">
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.web.click.editor.hyperlinks.ClickHyperlinkProvider"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.lib.editor.hyperlink.spi.HyperlinkProvider"/>
+                    </file>
+                </folder>
+                <folder name="CodeGenerators">
+                    <file name="org-netbeans-modules-web-click-editor-ClickPopupAction$Factory.instance"/>
+                </folder>
+                <folder name="CompletionProviders">
+                    <file name="org-netbeans-modules-web-click-editor-completion-ClickCompletionProvider.instance"/>
+                </folder>
+                <folder name="UpToDateStatusProvider">
+                    <file name="org-netbeans-modules-web-click-editor-hints-ClickStatusProvider.instance"/>
+                </folder>
+                <folder name="CodeTemplates">
+                    <folder name="Defaults">
+                        <file name="org-netbeans-modules-web-click-editor-snippets.xml" url="editor/codetemplates/org-netbeans-modules-click-editor-snippets.xml"/>
+                    </folder>
+                </folder>
+            </folder>
+            <folder name="x-java">
+                <folder name="HyperlinkProviders">
+                    <file name="org-netbeans-modules-web-click-editor-hyperlinks-ResourceHyperlinkProvider.instance">
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.web.click.editor.hyperlinks.ResourceHyperlinkProvider"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.lib.editor.hyperlink.spi.HyperlinkProvider"/>
+                    </file>
+                </folder>
+                <folder name="Popup">
+                    <file name="generate-code">
+                        <attr name="position" intvalue="13"/>
+                    </file>
+                    <folder name="goto">
+                        <file name="org-netbeans-modules-web-click-actions-GotoPageAction-separatorAfter.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="475"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoPageAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPageAction.instance"/>
+                            <attr name="position" intvalue="650"/>
+                        </file>
+                        <file name="org-netbeans-modules-web-click-actions-GotoPropertiesAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-web-click-actions-GotoPropertiesAction.instance"/>
+                            <attr name="position" intvalue="825"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+            <folder name="x-click-menu+xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                <folder name="HyperlinkProviders">
+                    <file name="org-netbeans-modules-web-click-editor-hyperlinks-MenuHyperlinkProvider.instance">
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.web.click.editor.hyperlinks.MenuHyperlinkProvider"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.lib.editor.hyperlink.spi.HyperlinkProvider"/>
+                    </file>
+                </folder>
+                <folder name="CompletionProviders">
+                    <file name="org-netbeans-modules-web-click-editor-completion-ClickCompletionProvider.instance"/>
+                </folder>
+                <folder name="CodeTemplates">
+                    <folder name="Defaults">
+                        <file name="org-netbeans-modules-web-click-menueditor-snippets.xml" url="editor/codetemplates/org-netbeans-modules-click-menueditor-snippets.xml"/>
+                    </folder>
+                </folder>
+            </folder>
+            <!-- registered in x-lickapp+xml does not work -->
+            <folder name="xml">
+                <folder name="UpToDateStatusProvider">
+                    <file name="org-netbeans-modules-web-click-editor-hints-ClickStatusProvider.instance"/>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="TaskList">
+        <folder name="Scanners">
+            <file name="org-netbeans-modules-web-click-editor-TaskListBridge.instance"/>
+        </folder>
+    </folder>
+</filesystem>

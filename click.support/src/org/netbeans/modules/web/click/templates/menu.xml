@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menu PUBLIC
+       "-//Apache Software Foundation//DTD Click Menu 2.2//EN"
+       "http://click.apache.org/dtds/menu-2.2.dtd">
+<menu>
+<!--
+<menu label=" Home" path="user/home.htm" roles="user, admin"  imageSrc="/assets/home.png"/>
+ -->
+</menu>

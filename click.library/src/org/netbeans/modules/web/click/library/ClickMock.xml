@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library PUBLIC "-//NetBeans//DTD Library Declaration 1.0//EN" "http://www.netbeans.org/dtds/library-declaration-1_0.dtd">
+<library version="1.0">
+    <name>click-mock</name>
+    <type>j2se</type>
+    <localizing-bundle>org/netbeans/modules/web/click/library/Bundle</localizing-bundle>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:nbinst://org.netbeans.modules.web.click.library/modules/ext/click-mock-2.3.0.jar!/</resource>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>src</type>
+        <resource>jar:nbinst://org.netbeans.modules.web.click.library/modules/ext/click-mock-2.3.0.jar!/</resource>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+        <resource>http://repo1.maven.org/maven2/org/apache/click/click-mock/2.3.0/click-mock-2.3.0.pom</resource>
+    </volume>
+</library>

@@ -1,0 +1,38 @@
+/* 
+    Document   : style
+    Created on : Mar 22, 2010, 5:18:22 PM
+    Author     : hantsy
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+    font-family: Arial;
+}
+
+#header {
+    background-color: navy;
+}
+
+#title {
+    color: white;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#container {
+    padding-top: 1em;
+    padding-left: 1.5em;
+    position: relative;
+    z-index: 0;
+}
+
+h3.title {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}

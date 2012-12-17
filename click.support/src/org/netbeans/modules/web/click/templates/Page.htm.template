@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8">
+    <title><#if template="simple-form">Simple Form<#else>Blank Page</#if></title>
+    ${r"$imports"}
+  </head>
+  <body>
+<#if template=="simple-form">
+    ${r"$form"}
+<#else>
+    Blank Page
+</#if>
+  </body>
+</html>
