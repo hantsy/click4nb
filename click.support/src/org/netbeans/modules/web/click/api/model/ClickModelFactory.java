@@ -32,6 +32,7 @@ public class ClickModelFactory extends AbstractModelFactory<ClickModel> {
         return new ClickModelImpl(source);
     }
 
+    @Override
     public ClickModel getModel(ModelSource source) {
         return super.getModel(source);
     }

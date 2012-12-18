@@ -19,7 +19,7 @@ import org.netbeans.api.project.ProjectUtils;
 import org.netbeans.api.project.SourceGroup;
 import org.netbeans.api.project.Sources;
 import org.netbeans.modules.editor.NbEditorUtilities;
-import org.netbeans.modules.web.click.wizards.ClickPageWizardPanel1;
+import org.netbeans.modules.web.click.project.wizard.ClickPageWizardPanel1;
 import org.netbeans.spi.editor.codegen.CodeGenerator;
 import org.netbeans.spi.editor.codegen.CodeGeneratorContextProvider;
 import org.openide.DialogDisplayer;

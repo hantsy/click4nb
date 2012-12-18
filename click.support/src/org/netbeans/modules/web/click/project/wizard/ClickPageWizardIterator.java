@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.netbeans.modules.web.click.wizards;
+package org.netbeans.modules.web.click.project.wizard;
 
 import java.awt.Component;
 import java.io.IOException;

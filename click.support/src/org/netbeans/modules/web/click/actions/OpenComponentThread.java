@@ -24,7 +24,7 @@ import org.openide.util.RequestProcessor;
  */
 public class OpenComponentThread implements Runnable {
 
-    Logger log = Logger.getLogger(OpenComponentThread.class.getName());
+    private static final Logger log = Logger.getLogger(OpenComponentThread.class.getName());
     FileObject activeFileObject;
     ClickFileType typeToFind;
 

@@ -62,8 +62,8 @@
                 </folder>
                 <folder name="Factories">
                     <file name="org.netbeans.modules.web.click.ClickDataObject.instance">
-                        <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/netbeans/modules/web/click/resources/click-icon.png"/>
                         <attr name="dataObjectClass" stringvalue="org.netbeans.modules.web.click.ClickDataObject"/>
+                        <attr name="iconBase" stringvalue="org/netbeans/modules/web/click/resources/click-icon.png"/>
                         <attr name="instanceCreate" methodvalue="org.openide.loaders.DataLoaderPool.factory"/>
                         <attr name="mimeType" stringvalue="text/x-click-app+xml"/>
                     </file>
@@ -121,8 +121,8 @@
                 </folder>
                 <folder name="Factories">
                     <file name="org.netbeans.modules.web.click.MenuDataObject.instance">
-                        <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/openide/loaders/xmlObject.gif"/>
                         <attr name="dataObjectClass" stringvalue="org.netbeans.modules.web.click.MenuDataObject"/>
+                        <attr name="iconBase" stringvalue="org/openide/loaders/xmlObject.gif"/>
                         <attr name="instanceCreate" methodvalue="org.openide.loaders.DataLoaderPool.factory"/>
                         <attr name="mimeType" stringvalue="text/x-click-menu+xml"/>
                     </file>
@@ -150,35 +150,38 @@
             </file>
         </folder>
     </folder>
-    <folder name="Services">
+<!--    <folder name="Services">
         <folder name="MIMEResolver">
-            <file name="org-netbeans-modules-web-click-ClickResolver.xml" url="ClickResolver.xml">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            <file name="org-netbeans-modules-web-click-ClickResolver.xml">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Services/MIMEResolver/org-netbeans-modules-web-click-ClickResolver.xml"/>
+                <attr name="resource" urlvalue="ClickResolver.xml"/>
             </file>
-            <file name="org-netbeans-modules-web-click-MenuResolver.xml" url="MenuResolver.xml">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            <file name="org-netbeans-modules-web-click-MenuResolver.xml">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Services/MIMEResolver/org-netbeans-modules-web-click-MenuResolver.xml"/>
+                <attr name="resource" urlvalue="MenuResolver.xml"/>
             </file>
         </folder>
-    </folder>
+    </folder>-->
     <folder name="Templates">
         <folder name="Click">
-            <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
-            <file name="ClickPage" url="templates/Page.java.template">
-                <attr name="SystemFileSystem.icon" urlvalue="nbresloc:/org/netbeans/modules/java/resources/class.gif"/>
-                <attr name="instantiatingIterator" newvalue="org.netbeans.modules.web.click.wizards.ClickPageWizardIterator"/>
+             <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Templates/Click"/>
+             <file name="ClickPage" url="project/template/Page.java.template">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Templates/Click/ClickPage"/>
+                <attr name="iconBase" stringvalue="org/netbeans/modules/java/resources/class.gif"/>             
+                <attr name="instantiatingIterator" newvalue="org.netbeans.modules.web.click.project.wizard.ClickPageWizardIterator"/>
                 <attr name="template" boolvalue="true"/>
                 <attr name="templateCategory" stringvalue="servlet-types"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
-                <attr name="templateWizardURL" urlvalue="nbresloc:/org/netbeans/modules/web/click/wizards/clickPage.html"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/netbeans/modules/web/click/project/wizard/clickPage.html"/>
             </file>
 
-            <file name="ClickTemplate.xml" url="templates/click.xml">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            <file name="ClickTemplate.xml" url="project/template/click.xml">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Templates/Click/ClickTemplate.xml"/>
                 <attr name="template" boolvalue="true"/>
                 <attr name="templateCategory" stringvalue="servlet-types"/>
             </file>
-            <file name="MenuTemplate.xml" url="templates/menu.xml">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+            <file name="MenuTemplate.xml" url="project/template/menu.xml">
+                <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Templates/Click/MenuTemplate.xml"/>
                 <attr name="template" boolvalue="true"/>
                 <attr name="templateCategory" stringvalue="servlet-types"/>
             </file>
@@ -195,7 +198,7 @@
         <folder name="XML">
             <folder name="UserCatalogs">
                 <file name="org-netbeans-modules-web-click-ClickCatalog.instance">
-                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>
+                    <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Plugins/XML/UserCatalogs/org-netbeans-modules-web-click-ClickCatalog.instance"/>
                     <attr name="instanceCreate" newvalue="org.netbeans.modules.web.click.ClickCatalog"/>
                     <attr name="instanceOf" stringvalue="org.netbeans.modules.xml.catalog.spi.CatalogReader"/>
                 </file>
@@ -214,45 +217,45 @@
         <folder name="Templates">
 
             <!--PageClass template-->
-            <file name="Page.java" url="templates/Page.java.template">
+            <file name="Page.java" url="project/template/Page.java.template">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
 
-            <file name="Page.htm" url="templates/Page.htm.template">
+            <file name="Page.htm" url="project/template/Page.htm.template">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-            <file name="Page.jsp" url="templates/Page.htm.template">
+            <file name="Page.jsp" url="project/template/Page.htm.template">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-            <file name="style.css" url="templates/style.css.template">
+            <file name="style.css" url="project/template/style.css.template">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-             <file name="Home.java" url="templates/Home.java.template">
+             <file name="Home.java" url="project/template/Home.java.template">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
 
-            <file name="home.htm" url="templates/home.htm.template">
+            <file name="home.htm" url="project/template/home.htm.template">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-            <file name="click.xml" url="templates/click.xml">
+            <file name="click.xml" url="project/template/click.xml">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-            <file name="applicationContext.xml" url="templates/applicationContext.xml">
+            <file name="applicationContext.xml" url="project/template/applicationContext.xml">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-            <file name="redirect.html" url="templates/redirect.html">
+            <file name="redirect.html" url="project/template/redirect.html">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="false"/>
             </file>
-            <file name="menu.xml" url="templates/menu.xml">
+            <file name="menu.xml" url="project/template/menu.xml">
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
                 <attr name="template" boolvalue="false"/>
             </file>
@@ -304,7 +307,7 @@
                     </folder>
                 </folder>
             </folder>
-           <!-- <folder name="x-properties">
+            <!-- <folder name="x-properties">
                 <folder name="Popup">
                     <folder name="goto">
                         <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.web.click.Bundle"/>

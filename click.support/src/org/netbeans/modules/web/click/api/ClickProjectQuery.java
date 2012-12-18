@@ -3,8 +3,8 @@ package org.netbeans.modules.web.click.api;
 import java.util.Collection;
 import java.util.logging.Level;
 import org.netbeans.api.project.Project;
-import org.openide.util.Lookup;
 import org.netbeans.modules.web.click.spi.ClickProjectQueryImplementation;
+import org.openide.util.Lookup;
 
 public class ClickProjectQuery {
     private static final java.util.logging.Logger LOGGER;

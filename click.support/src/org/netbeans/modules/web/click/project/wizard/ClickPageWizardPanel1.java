@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.netbeans.modules.web.click.wizards;
+package org.netbeans.modules.web.click.project.wizard;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +28,7 @@ import org.netbeans.modules.web.api.webmodule.WebModule;
 import org.netbeans.modules.web.click.api.ClickProjectQuery;
 import org.netbeans.modules.web.click.api.model.ClickModelFactory;
 import org.netbeans.modules.xml.retriever.catalog.Utilities;
+import org.netbeans.modules.xml.xam.locator.CatalogModelException;
 import org.openide.WizardDescriptor;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
@@ -90,7 +91,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
         return templateFilePath;
     }
 
-    public Set<FileObject> generateFiles() {
+    public Set<FileObject> generateFiles() throws CatalogModelException {
         final String pageClassFqn = component.getPackageName() + "." + component.getPageClassName();
         final String templatePagePath = getPagePath();
 
@@ -166,7 +167,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
             FileObject clickFO = ClickConfigUtilities.getClickConfigFile(project, ClickConstants.DEFAULT_CLICK_APP_CONFIG_FILE);
             if (clickFO != null) {
 
-                ClickModel model = ClickModelFactory.getInstance().createFreshModel(Utilities.getModelSource(clickFO, true));
+                ClickModel model = ClickModelFactory.getInstance().createFreshModel(Utilities.createModelSource(clickFO, true));
                 ClickComponentFactory factory = model.getFactory();
                 model.startTransaction();
                 ClickApp root = model.getRootComponent();
