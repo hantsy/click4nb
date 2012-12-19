@@ -1,4 +1,6 @@
-click4nb is a [ NetBeans IDE](http://www.netbeans.org) plugin  which provide basic support for [Apache Click Framework](http://click.apache.org ).
+#What is it?#
+
+click4nb is a [NetBeans IDE](http://www.netbeans.org) plugin  which provide basic support for [Apache Click Framework](http://click.apache.org ).
 
 #Getting Started#
 1. [Installation](https://github.com/hantsy/click4nb/wiki/Installation)
