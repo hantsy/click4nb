@@ -9,6 +9,10 @@ import org.netbeans.api.project.FileOwnerQuery;
 import org.netbeans.api.project.Project;
 import org.netbeans.modules.web.click.api.ClickFileType;
 import org.netbeans.modules.web.click.api.ClickProjectQuery;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
 import org.openide.cookies.EditorCookie;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataObject;
@@ -17,6 +21,14 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 
+@NbBundle.Messages({
+    "GotoPageAction=Go to Page Template"
+})
+@ActionID(id = "org.netbeans.modules.web.click.actions.GotoPageAction", category = "File")
+@ActionRegistration(lazy = false, displayName = "#GotoPageAction")
+@ActionReferences(value = {
+    @ActionReference(path = "Menu/GoTo", position = 675),
+    @ActionReference(path = "Editors/text/x-java/Popup/goto", position = 650)})
 public final class GotoPageAction extends CookieAction {
 
     private static final java.util.logging.Logger LOGGER;

@@ -200,7 +200,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
                 } catch (CatalogModelException ex) {
                     Exceptions.printStackTrace(ex);
                 }
-                
+
             }
         }
         return files;
@@ -261,27 +261,27 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
     private ChangeSupport changeSupport = new ChangeSupport(this);
 
     /*
-    private final Set<ChangeListener> listeners = new HashSet<ChangeListener>(1); // or can use ChangeSupport in NB 6.0
-    public final void addChangeListener(ChangeListener l) {
-    synchronized (listeners) {
-    listeners.add(l);
-    }
-    }
-    public final void removeChangeListener(ChangeListener l) {
-    synchronized (listeners) {
-    listeners.remove(l);
-    }
-    }
-    protected final void fireChangeEvent() {
-    Iterator<ChangeListener> it;
-    synchronized (listeners) {
-    it = new HashSet<ChangeListener>(listeners).iterator();
-    }
-    ChangeEvent ev = new ChangeEvent(this);
-    while (it.hasNext()) {
-    it.next().stateChanged(ev);
-    }
-    }
+     private final Set<ChangeListener> listeners = new HashSet<ChangeListener>(1); // or can use ChangeSupport in NB 6.0
+     public final void addChangeListener(ChangeListener l) {
+     synchronized (listeners) {
+     listeners.add(l);
+     }
+     }
+     public final void removeChangeListener(ChangeListener l) {
+     synchronized (listeners) {
+     listeners.remove(l);
+     }
+     }
+     protected final void fireChangeEvent() {
+     Iterator<ChangeListener> it;
+     synchronized (listeners) {
+     it = new HashSet<ChangeListener>(listeners).iterator();
+     }
+     ChangeEvent ev = new ChangeEvent(this);
+     while (it.hasNext()) {
+     it.next().stateChanged(ev);
+     }
+     }
      */
     // You can use a settings object to keep track of state. Normally the
     // settings object will be the WizardDescriptor, so you can use
@@ -348,6 +348,9 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
 
 // Nice copy of useful methods (Taken from JavaModule)
     static boolean isValidPackageName(String str) {
+        if (str == null) {
+            return false;
+        }
         if (str.length() > 0 && str.charAt(0) == '.') {
             return false;
         }
@@ -411,4 +414,3 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
         return result;
     }
 }
-

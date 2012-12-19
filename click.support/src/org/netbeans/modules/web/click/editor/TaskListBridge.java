@@ -58,10 +58,13 @@ public class TaskListBridge extends FileTaskScanner {
 
     @Override
     public List<? extends Task> scan(FileObject resource) {
-        if (resource != null && "text/x-clickapp+xml".equals(resource.getMIMEType())) {
+        if (resource != null && "text/x-click-app+xml".equals(resource.getMIMEType())) {
             LOGGER.log(Level.FINEST, "scan click.xml");
             List<Task> tasks = new ArrayList<Task>();
             ClickModel model = ClickConfigUtilities.getClickModel(resource, false);
+            
+             LOGGER.log(Level.FINEST, "find click.xml model state@{0}",  model.getState());
+             
             List<ErrorDescription> errs = new ClickPathErrorVisitor(((ClickModelImpl) model).getBaseDocument()).getErrorDescriptions();
             for (ErrorDescription error : errs) {
                 try {
@@ -69,7 +72,7 @@ public class TaskListBridge extends FileTaskScanner {
                             severityToTaskListString(error.getSeverity()),
                             error.getDescription(),
                             error.getRange().getBegin().getLine() + 1);
-                    LOGGER.log(Level.FINEST, "create task@" + task);
+                    LOGGER.log(Level.FINEST, "create task@{0}", task);
                     tasks.add(task);
                 } catch (IOException e) {
                     LOGGER.log(Level.FINEST, "Error while converting errors to tasklist", e);

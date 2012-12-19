@@ -439,10 +439,9 @@ public class ClickResourceTracker {
     }
 
     //------------------private methods------------------
-    private static void buildManualPageMapping(Project project, FileObject webRoot, Pages pages, String pagesPackage) {
+    private static void buildManualPageMapping(Project project, FileObject webRoot, List<Page> pageList, String pagesPackage) {
         log.finest("starting buildManualPageMapping...");
 
-        List<Page> pageList = pages.getPageList();
         if (pageList == null || pageList.isEmpty()) {
             return;
         }
@@ -454,8 +453,12 @@ public class ClickResourceTracker {
         }
     }
 
-    private static void buildAutoPageMapping(Project project, FileObject webRoot, Pages pages, String pagesPackage, List<String> templates) {
-        log.finest("starting buildAutoPageMapping...");
+    private static void buildAutoPageMapping(Project project, FileObject webRoot, String pagesPackage, List<String> templates) {
+        log.log(Level.FINEST, "starting buildAutoPageMapping for package@{0}...", new Object[]{pagesPackage});
+        if(pagesPackage==null){
+            return;
+        }
+        
         for (int i = 0; i < templates.size(); i++) {
             String pagePath = templates.get(i);
 
@@ -644,10 +647,10 @@ public class ClickResourceTracker {
                 automap = Boolean.parseBoolean(pages.getAutoMapping());
             }
 
-            buildManualPageMapping(project, webRoot, pages, pagesPackage);
+            buildManualPageMapping(project, webRoot, pages.getPageList(), pagesPackage);
 
             if (automap) {
-                buildAutoPageMapping(project, webRoot, pages, pagesPackage, templatesList);
+                buildAutoPageMapping(project, webRoot, pagesPackage, templatesList);
             }
             automap = true;
         }    

@@ -2,7 +2,7 @@
   <head>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8">
     <title><#if template="simple-form">Simple Form<#else>Blank Page</#if></title>
-    ${r"$imports"}
+    ${r"$headElements"}
   </head>
   <body>
 <#if template=="simple-form">
@@ -10,5 +10,6 @@
 <#else>
     Blank Page
 </#if>
+     ${r"$jsElements"}
   </body>
 </html>

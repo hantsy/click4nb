@@ -14,6 +14,7 @@ import org.netbeans.spi.xml.cookies.DataObjectAdapters;
 import org.netbeans.spi.xml.cookies.ValidateXMLSupport;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataNode;
+import org.openide.loaders.DataObject;
 import org.openide.loaders.DataObjectExistsException;
 import org.openide.loaders.MultiDataObject;
 import org.openide.loaders.MultiFileLoader;
@@ -22,8 +23,16 @@ import org.openide.nodes.Node;
 import org.openide.nodes.Children;
 import org.openide.util.Lookup;
 import org.openide.text.DataEditorSupport;
+import org.openide.util.NbBundle;
 import org.xml.sax.InputSource;
 
+@NbBundle.Messages({
+    "MenuDataObject=MenuDataObject"
+})
+@DataObject.Registration(
+        displayName = "#MenuDataObject", 
+        iconBase = "org/openide/loaders/xmlObject.gif", 
+        mimeType = "text/x-click-menu+xml")
 public class MenuDataObject extends MultiDataObject {
 
     public MenuDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {

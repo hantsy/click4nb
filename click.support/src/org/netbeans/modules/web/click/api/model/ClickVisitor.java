@@ -47,66 +47,82 @@ public interface ClickVisitor {
         protected void visitChild() {
         }
 
+        @Override
         public void accept(ClickApp component) {
             visitChild();
         }
 
+        @Override
         public void accept(Headers component) {
             visitChild();
         }
 
+        @Override
         public void accept(Header component) {
             visitChild();
         }
 
+        @Override
         public void accept(Pages component) {
             visitChild();
         }
 
+        @Override
         public void accept(Page component) {
             visitChild();
         }
 
+        @Override
         public void accept(Controls component) {
             visitChild();
         }
 
+        @Override
         public void accept(ControlSet component) {
             visitChild();
         }
 
+        @Override
         public void accept(Control component) {
             visitChild();
         }
 
+        @Override
         public void accept(Mode component) {
             visitChild();
         }
 
+        @Override
         public void accept(Format component) {
             visitChild();
         }
 
+        @Override
         public void accept(FileUploadService component) {
             visitChild();
         }
 
+        @Override
         public void accept(LogService component) {
             visitChild();
         }
 
+        @Override
         public void accept(TemplateService component) {
             visitChild();
         }
 
+        @Override
         public void accept(Property component) {
             visitChild();
         }
 
+        @Override
         public void accept(Excludes component) {
             visitChild();
         }
 
+        @Override
         public void accept(PageInterceptor component) {
             visitChild();
         }

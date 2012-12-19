@@ -15,6 +15,7 @@ import org.netbeans.spi.xml.cookies.DataObjectAdapters;
 import org.netbeans.spi.xml.cookies.ValidateXMLSupport;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataNode;
+import org.openide.loaders.DataObject;
 import org.openide.loaders.DataObjectExistsException;
 import org.openide.loaders.MultiDataObject;
 import org.openide.loaders.MultiFileLoader;
@@ -23,9 +24,17 @@ import org.openide.nodes.Node;
 import org.openide.nodes.Children;
 import org.openide.util.Lookup;
 import org.openide.text.DataEditorSupport;
+import org.openide.util.NbBundle;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXParseException;
 
+@NbBundle.Messages({
+    "ClickDataObject=ClickDataObject"
+})
+@DataObject.Registration(
+        displayName = "#ClickDataObject", 
+        iconBase = "org/netbeans/modules/web/click/resources/click-icon.png", 
+        mimeType = "text/x-click-app+xml")
 public class ClickDataObject extends MultiDataObject {
 
     public ClickDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {
@@ -51,18 +60,18 @@ public class ClickDataObject extends MultiDataObject {
         return getCookieSet().getLookup();
     }
 
-    static ClickCatalog clickCatalog=new ClickCatalog();
-
-     private org.w3c.dom.Document getDomDocument(InputStream inputSource) throws SAXParseException {
-        try {
-            // creating w3c document
-            org.w3c.dom.Document doc = org.netbeans.modules.schema2beans.GraphManager.
-                createXmlDocument(new org.xml.sax.InputSource(inputSource), false, clickCatalog,
-               null);
-            return doc;
-        } catch(Exception e) {
-            //    XXX Change that
-            throw new SAXParseException(e.getMessage(), new org.xml.sax.helpers.LocatorImpl());
-        }
-    }
+//    static ClickCatalog clickCatalog=new ClickCatalog();
+//
+//     private org.w3c.dom.Document getDomDocument(InputStream inputSource) throws SAXParseException {
+//        try {
+//            // creating w3c document
+//            org.w3c.dom.Document doc = org.netbeans.modules.schema2beans.GraphManager.
+//                createXmlDocument(new org.xml.sax.InputSource(inputSource), false, clickCatalog,
+//               null);
+//            return doc;
+//        } catch(Exception e) {
+//            //    XXX Change that
+//            throw new SAXParseException(e.getMessage(), new org.xml.sax.helpers.LocatorImpl());
+//        }
+//    }
 }

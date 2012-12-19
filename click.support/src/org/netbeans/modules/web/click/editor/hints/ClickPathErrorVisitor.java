@@ -57,21 +57,21 @@ public class ClickPathErrorVisitor extends ClickVisitor.Deep {
 
     static {
         LOGGER = java.util.logging.Logger.getLogger("org.netbeans.modules.web.click.editor.hints.ClickPathErrorVisitor");
-//        org.netbeans.modules.web.click.editor.hints.ClickPathErrorVisitor.initLoggerHandlers();
-//    }
-//
-//    private static final void initLoggerHandlers() {
-//        java.util.logging.Handler[] handlers = LOGGER.getHandlers();
-//        boolean hasConsoleHandler = false;
-//        for (java.util.logging.Handler handler : handlers) {
-//            if (handler instanceof java.util.logging.ConsoleHandler) {
-//                hasConsoleHandler = true;
-//            }
-//        }
-//        if (!hasConsoleHandler) {
-//            LOGGER.addHandler(new java.util.logging.ConsoleHandler());
-//        }
-//        LOGGER.setLevel(java.util.logging.Level.FINEST);
+        org.netbeans.modules.web.click.editor.hints.ClickPathErrorVisitor.initLoggerHandlers();
+    }
+
+    private static final void initLoggerHandlers() {
+        java.util.logging.Handler[] handlers = LOGGER.getHandlers();
+        boolean hasConsoleHandler = false;
+        for (java.util.logging.Handler handler : handlers) {
+            if (handler instanceof java.util.logging.ConsoleHandler) {
+                hasConsoleHandler = true;
+            }
+        }
+        if (!hasConsoleHandler) {
+            LOGGER.addHandler(new java.util.logging.ConsoleHandler());
+        }
+        LOGGER.setLevel(java.util.logging.Level.FINEST);
     }
     List<ErrorDescription> errList = null;
     // List<ErrorDescription> clzErrors = null;
@@ -88,22 +88,9 @@ public class ClickPathErrorVisitor extends ClickVisitor.Deep {
         this.docFO = NbEditorUtilities.getFileObject(document);
         this.model = ClickConfigUtilities.getClickModel(docFO, false);
 
-//        docFO.addFileChangeListener(FileUtil.weakFileChangeListener(
-//                new FileChangeAdapter() {
-//
-//                    @Override
-//                    public void fileChanged(FileEvent fe) {
-//                        RequestProcessor.getDefault().post(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                refresh();
-//                            }
-//                        });
-//                    }
-//                }, docFO));
-        // if (errList == null) {
         this.errList = new ArrayList<ErrorDescription>();
+
+        LOGGER.log(Level.FINEST, "@@@model.getState()@{0}", new Object[]{model.getState()});
         if (model.getState() == Model.State.VALID) {
             scanClickError();
             //      }
@@ -138,8 +125,8 @@ public class ClickPathErrorVisitor extends ClickVisitor.Deep {
         return this.errList;
     }
 
-    void scanClickError() {
-
+    private void scanClickError() {
+        LOGGER.log(Level.FINEST, "@@@scanClickError()@");
         try {
             th = TokenHierarchy.create(document.getText(0, document.getLength()), XMLTokenId.language());
             ts = th.tokenSequence(XMLTokenId.language());
@@ -206,29 +193,29 @@ public class ClickPathErrorVisitor extends ClickVisitor.Deep {
     private int endPosition;
 
     void computeAttributeValuePosition(ClickComponent component, String attribute) {
-        LOGGER.log(Level.FINEST, "@@@ClickPathErrorVisitor@ component@ " + component + ", attribute@ " + attribute);
+        LOGGER.log(Level.FINEST, "@@@ClickPathErrorVisitor@ component@ {0}, attribute@ {1}", new Object[]{component, attribute});
         int attrPosition = component.findAttributePosition(attribute);
         ts.move(attrPosition);
 
-        LOGGER.log(Level.FINEST, "attribute token text @" + ts.token());
+        LOGGER.log(Level.FINEST, "attribute token text @{0}", ts.token());
         while (ts.token() == null || ts.token().id() == XMLTokenId.WS || !attribute.equals(ts.token().text().toString())) {
             ts.moveNext();// move to attribute.
         }
-        LOGGER.log(Level.FINEST, "move to attribute@attribute token text @" + ts.token());
+        LOGGER.log(Level.FINEST, "move to attribute@attribute token text @{0}", ts.token());
 
         ts.moveNext();//move to '=' or ' ' after attribute name
 
         while (ts.token() == null || ts.token().id() == XMLTokenId.WS || ts.token().id() == XMLTokenId.OPERATOR) {
             ts.moveNext();
         }
-        LOGGER.log(Level.FINEST, "move to attribute value @attribute token text @" + ts.token());
+        LOGGER.log(Level.FINEST, "move to attribute value @attribute token text @{0}", ts.token());
 
         Token<XMLTokenId> valueToken = ts.token();
         if (valueToken != null && valueToken.length() > 2) {
             this.startPosition = valueToken.offset(th) + 1;
             this.endPosition = startPosition + valueToken.length() - 2;
         }
-        LOGGER.log(Level.FINEST, "@@@ClickPathErrorVisitor@computeAttributeValuePosition, startPosition@ " + startPosition + ", endPosition@ " + endPosition);
+        LOGGER.log(Level.FINEST, "@@@ClickPathErrorVisitor@computeAttributeValuePosition, startPosition@ {0}, endPosition@ {1}", new Object[]{startPosition, endPosition});
     }
 
     private void scanClassnameErrors(final ClickComponent component) {
@@ -238,14 +225,13 @@ public class ClickPathErrorVisitor extends ClickVisitor.Deep {
         String clz = null;
         if (component instanceof ClassNameComponent) {
             clz = ((ClassNameComponent) component).getClassName();
-        } 
+        }
 
         final String classname = clz;
         if (classname != null && !"".equals(classname)) {
             JavaSource source = JavaUtils.getJavaSource(docFO);
             try {
                 source.runUserActionTask(new Task<CompilationController>() {
-
                     @Override
                     public void run(CompilationController cc) throws Exception {
                         cc.toPhase(JavaSource.Phase.ELEMENTS_RESOLVED);
@@ -255,14 +241,12 @@ public class ClickPathErrorVisitor extends ClickVisitor.Deep {
                             if (element == null) {
                                 computeAttributeValuePosition(component, ClickAttributes.CLASSNAME.getName());
                                 errList.add(
-                                            ErrorDescriptionFactory.createErrorDescription(
-                                                Severity.WARNING,
-                                                WARN_CLASS,
-                                                document,
-                                                document.createPosition(startPosition),
-                                                document.createPosition( endPosition)
-                                                )
-                                            );
+                                        ErrorDescriptionFactory.createErrorDescription(
+                                        Severity.WARNING,
+                                        WARN_CLASS,
+                                        document,
+                                        document.createPosition(startPosition),
+                                        document.createPosition(endPosition)));
                             }
                         }
                     }

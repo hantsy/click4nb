@@ -1,5 +1,9 @@
 click4nb is a [ NetBeans IDE](http://www.netbeans.org) plugin  which provide basic support for [Apache Click Framework](http://click.apache.org ).
 
+#Getting Stated#
+1. [Installation](https://github.com/hantsy/click4nb/wiki/Installation)
+2. [Getting Started with Apache Click and NetBeans IDE](https://github.com/hantsy/click4nb/wiki/Getting-Started-with-Apache-Click-and-NetBeans-IDE)
+
 #Current Features#
 1. Wizard for creating new java web project with Click framework support.
 2. Wizard for creating new page class and template file.

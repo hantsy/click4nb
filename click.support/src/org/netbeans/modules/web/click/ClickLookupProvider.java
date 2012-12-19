@@ -18,8 +18,8 @@ import org.openide.util.lookup.Lookups;
  * @author hantsy
  */
 @LookupProvider.Registration(projectTypes =
-@LookupProvider.Registration.ProjectType(id = "org-netbeans-modules-web-project",
-position = 300))
+    @LookupProvider.Registration.ProjectType(id = "org-netbeans-modules-web-project", position = 300)
+)
 public class ClickLookupProvider implements LookupProvider {
 
     @Override

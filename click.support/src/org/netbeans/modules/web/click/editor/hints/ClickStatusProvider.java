@@ -56,8 +56,7 @@ public class ClickStatusProvider implements UpToDateStatusProviderFactory {
         LOGGER.log(Level.FINEST, ">>>>>>>createUpToDateStatusProvider<<<<<");
         FileObject docFO = NbEditorUtilities.getFileObject(document);
 
-        if (docFO != null&& "text/x-clickapp+xml".equals(docFO.getMIMEType())
-                ) {
+        if (docFO != null && "text/x-click-app+xml".equals(docFO.getMIMEType())) {
             LOGGER.log(Level.FINEST, "@@@create status provider@@@");
             return new StatusCreator(document);
         }
@@ -75,35 +74,19 @@ public class ClickStatusProvider implements UpToDateStatusProviderFactory {
         public StatusCreator(Document doc) {
             this.document = doc;
             init();
+            checkHints();
 
             this.listener = new FileChangeAdapter() {
-
                 @Override
                 public void fileChanged(FileEvent fe) {
-                    RequestProcessor.getDefault().post(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            init();
-                            visitor.refresh();
-                            checkHints();
-                        }
-                    });
-                }
-            };
-
-            //((ClickModelImpl) model).setAutoSyncActive(true);
-
-            docFO.addFileChangeListener(FileUtil.weakFileChangeListener(listener, docFO));
-            RequestProcessor.getDefault().post(new Runnable() {
-
-                @Override
-                public void run() {
+                    init();
+                    visitor.refresh();
                     checkHints();
                 }
-            });
+            };
+            
+            docFO.addFileChangeListener(FileUtil.weakFileChangeListener(listener, docFO));
 
-//            checkHints();
         }
 
         private void init() {

@@ -13,6 +13,7 @@ import org.netbeans.modules.xml.xam.dom.DocumentComponent;
  */
 public interface ClickComponent extends DocumentComponent<ClickComponent>{
 
+    @Override
     ClickModel getModel();
     void accept(ClickVisitor visitor);
 }
