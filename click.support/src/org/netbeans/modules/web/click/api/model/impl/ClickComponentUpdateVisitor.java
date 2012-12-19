@@ -38,10 +38,12 @@ class ClickComponentUpdateVisitor extends ClickVisitor.Default implements Compon
     public ClickComponentUpdateVisitor() {
     }
 
+    @Override
     public void update(ClickComponent target, ClickComponent child, Operation operation) {
         update(target, child, -1, operation);
     }
 
+    @Override
     public void update(ClickComponent target, ClickComponent child, int index, Operation operation) {
         this.target=target;
         this.index=index;

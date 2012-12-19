@@ -36,33 +36,33 @@ public class OpenComponentThread implements Runnable {
 
     @Override
     public void run() {
-        FileObject[] targetFO = ClickComponentQuery.findComponent(activeFileObject, typeToFind);
+        FileObject targetFO = ClickComponentQuery.findComponent(activeFileObject, typeToFind);
 
-        if (targetFO == null || targetFO.length == 0) {
+        if (targetFO == null) {
             StatusDisplayer.getDefault().setStatusText(NbBundle.getMessage(OpenComponentThread.class, "MSG_FileNotFound"));
-        } else if (targetFO.length == 1) {
-            openFile(targetFO[0]);
         } else {
-            log.finest("find more than one file... and popup a window to select.");
-            log.finest("target file size@" + targetFO.length);
-
-            Project project = FileOwnerQuery.getOwner(activeFileObject);
-            String[] filePaths = new String[targetFO.length];
-            for (int i = 0; i < targetFO.length; i++) {
-                filePaths[i] = FileUtil.getRelativePath(project.getProjectDirectory(), targetFO[i]);
-            }
-
-            log.finest("files path @@" + filePaths);
-            TemplateSelectionPanel panel = new TemplateSelectionPanel(filePaths);
-            DialogDescriptor d = new DialogDescriptor(panel, "Select a file to open", true, null);
-
-            FileObject selectedResource = null;
-            if (DialogDescriptor.OK_OPTION == DialogDisplayer.getDefault().notify(d)) {
-                selectedResource = targetFO[panel.getSelectionIndex()];
-                if (selectedResource != null) {
-                    openFile(selectedResource);
-                }
-            }
+            openFile(targetFO);
+//        } else {
+//            log.finest("find more than one file... and popup a window to select.");
+//            log.finest("target file size@" + targetFO.length);
+//
+//            Project project = FileOwnerQuery.getOwner(activeFileObject);
+//            String[] filePaths = new String[targetFO.length];
+//            for (int i = 0; i < targetFO.length; i++) {
+//                filePaths[i] = FileUtil.getRelativePath(project.getProjectDirectory(), targetFO[i]);
+//            }
+//
+//            log.finest("files path @@" + filePaths);
+//            TemplateSelectionPanel panel = new TemplateSelectionPanel(filePaths);
+//            DialogDescriptor d = new DialogDescriptor(panel, "Select a file to open", true, null);
+//
+//            FileObject selectedResource = null;
+//            if (DialogDescriptor.OK_OPTION == DialogDisplayer.getDefault().notify(d)) {
+//                selectedResource = targetFO[panel.getSelectionIndex()];
+//                if (selectedResource != null) {
+//                    openFile(selectedResource);
+//                }
+//            }       
         }
     }
 

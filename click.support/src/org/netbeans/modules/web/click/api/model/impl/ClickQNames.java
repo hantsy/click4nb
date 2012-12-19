@@ -40,7 +40,7 @@ public enum ClickQNames {
     PROPERTY(ServiceComponent.PROP_PROPERTY);
 
     private QName qname;
-    private static Set<QName> mappedQNames = new HashSet<QName>();
+    private static final Set<QName> mappedQNames = new HashSet<QName>();
     static{
         mappedQNames.add(CLICK_APP.getQName());
         mappedQNames.add(HEADERS.getQName());

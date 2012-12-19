@@ -62,6 +62,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
     // is kept separate. This can be more efficient: if the wizard is created
     // but never displayed, or not all panels are displayed, it is better to
     // create only those which really need to be visible.
+    @Override
     public ClickPageVisualPanel1 getComponent() {
 
         if (component == null) {
@@ -72,6 +73,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
         return component;
     }
 
+    @Override
     public HelpCtx getHelp() {
         // Show no Help button for this panel:
         return HelpCtx.DEFAULT_HELP;
@@ -91,7 +93,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
         return templateFilePath;
     }
 
-    public Set<FileObject> generateFiles() throws CatalogModelException {
+    public Set<FileObject> generateFiles() {
         final String pageClassFqn = component.getPackageName() + "." + component.getPageClassName();
         final String templatePagePath = getPagePath();
 
@@ -166,40 +168,45 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
         if (component.requireCreateTemplateFile() && component.requireAddMappingToClickXML()) {
             FileObject clickFO = ClickConfigUtilities.getClickConfigFile(project, ClickConstants.DEFAULT_CLICK_APP_CONFIG_FILE);
             if (clickFO != null) {
+                try {
+                    ClickModel model = ClickModelFactory.getInstance().createFreshModel(Utilities.createModelSource(clickFO, true));
+                    ClickComponentFactory factory = model.getFactory();
+                    model.startTransaction();
+                    ClickApp root = model.getRootComponent();
 
-                ClickModel model = ClickModelFactory.getInstance().createFreshModel(Utilities.createModelSource(clickFO, true));
-                ClickComponentFactory factory = model.getFactory();
-                model.startTransaction();
-                ClickApp root = model.getRootComponent();
-
-                List<Pages> pagesList = root.getPagesList();
-                Pages targetPages = null;
-                if (pagesList != null) {
-                    for (Pages pagesCom : pagesList) {
-                        if (pagesCom.getPackage() == null || pagesCom.getPackage().equals(component.getPackageName()) || component.getPackageName().startsWith(pagesCom.getPackage() + ".")) {
-                            targetPages = pagesCom;
-                            break;
+                    List<Pages> pagesList = root.getPagesList();
+                    Pages targetPages = null;
+                    if (pagesList != null) {
+                        for (Pages pagesCom : pagesList) {
+                            if (pagesCom.getPackage() == null || pagesCom.getPackage().equals(component.getPackageName()) || component.getPackageName().startsWith(pagesCom.getPackage() + ".")) {
+                                targetPages = pagesCom;
+                                break;
+                            }
                         }
                     }
+
+                    if (targetPages == null) {
+                        targetPages = factory.createPages();
+                        root.addPages(targetPages);
+                    }
+
+                    Page newPage = factory.createPage();
+                    newPage.setClassName(pageClassFqn);
+                    newPage.setPath(templatePagePath);
+
+                    targetPages.addPage(newPage);
+
+                    model.endTransaction();
+                } catch (CatalogModelException ex) {
+                    Exceptions.printStackTrace(ex);
                 }
-
-                if (targetPages == null) {
-                    targetPages = factory.createPages();
-                    root.addPages(targetPages);
-                }
-
-                Page newPage = factory.createPage();
-                newPage.setClassName(pageClassFqn);
-                newPage.setPath(templatePagePath);
-
-                targetPages.addPage(newPage);
-
-                model.endTransaction();
+                
             }
         }
         return files;
     }
 
+    @Override
     public boolean isValid() {
         setErrorMessage(null);
         setInfoMessage(null);

@@ -10,10 +10,10 @@ public final class ClickComponentQuery {
     private ClickComponentQuery() {
     }
 
-    public static FileObject[] findComponent(FileObject activeFileObject, ClickFileType clickFileType) {
+    public static FileObject findComponent(FileObject activeFileObject, ClickFileType clickFileType) {
         Collection<? extends ClickComponentQueryImplementation> impls = Lookup.getDefault().lookupAll(ClickComponentQueryImplementation.class);
 
-        FileObject[] result = null;
+        FileObject result = null;
         for (ClickComponentQueryImplementation impl : impls) {
             result = impl.find(activeFileObject, clickFileType);
             if (result != null) {

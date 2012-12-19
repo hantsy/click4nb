@@ -35,6 +35,7 @@ class ClickComponentFactoryImpl implements ClickComponentFactory {
         this.model = model;
     }
 
+    @Override
     public ClickComponent create(Element element, ClickComponent context) {
         if (context == null) {
             if (areSameQName(ClickQNames.CLICK_APP, element)) {
@@ -51,38 +52,47 @@ class ClickComponentFactoryImpl implements ClickComponentFactory {
         return q.getQName().equals(AbstractDocumentComponent.getQName(e));
     }
 
+    @Override
     public Headers createHeaders() {
         return new HeadersImpl(model);
     }
 
+    @Override
     public Header createHeader() {
         return new HeaderImpl(model);
     }
 
+    @Override
     public Pages createPages() {
         return new PagesImpl(model);
     }
 
+    @Override
     public Page createPage() {
         return new PageImpl(model);
     }
 
+    @Override
     public Controls createControls() {
         return new ControlsImpl(model);
     }
 
+    @Override
     public Control createControl() {
         return new ControlImpl(model);
     }
 
+    @Override
     public ControlSet createControlSet() {
         return new ControlSetImpl(model);
     }
 
+    @Override
     public Format createFormat() {
         return new FormatImpl(model);
     }
 
+    @Override
     public Mode createMode() {
         return new ModeImpl(model);
     }
@@ -91,10 +101,12 @@ class ClickComponentFactoryImpl implements ClickComponentFactory {
         return new TemplateServiceImpl(model);
     }
 
+    @Override
     public FileUploadService createFileUploadService() {
         return new FileUploadServiceImpl(model);
     }
 
+    @Override
     public LogService createLogService() {
         return new LogServiceImpl(model);
     }

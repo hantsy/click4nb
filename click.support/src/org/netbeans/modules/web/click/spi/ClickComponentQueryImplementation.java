@@ -5,6 +5,6 @@ import org.openide.filesystems.FileObject;
 
 public interface ClickComponentQueryImplementation {
 
-    public FileObject[] find(FileObject activeFileObject, ClickFileType clickFileType);
+    public FileObject find(FileObject activeFileObject, ClickFileType clickFileType);
 
 }

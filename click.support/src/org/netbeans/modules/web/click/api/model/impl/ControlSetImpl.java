@@ -29,10 +29,12 @@ public class ControlSetImpl extends ClickComponentImpl.Named implements ControlS
         this(model, createElementNS(model, ClickQNames.CONTROL_SET));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public Reference<ClickApp> getReference() {
         return new ModelReference();
     }
@@ -43,6 +45,7 @@ public class ControlSetImpl extends ClickComponentImpl.Named implements ControlS
             super(ClickApp.class, ControlSetImpl.this, ControlSetImpl.this.getName());
         }
 
+        @Override
          public ClickApp get() {
             if (getReferenced() == null) {
                 FileObject targetFO = getAbsoluteLocation(refString);

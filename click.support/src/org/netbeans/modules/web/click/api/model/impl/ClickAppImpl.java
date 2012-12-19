@@ -35,38 +35,46 @@ public class ClickAppImpl extends ClickComponentImpl implements ClickApp {
         this(model, createElementNS(model, ClickQNames.CLICK_APP));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public Headers getHeaders() {
         return super.getChild(Headers.class);
     }
 
+    @Override
     public void setHeaders(Headers headers) {
         Collection<Class<? extends ClickComponent>> list = new ArrayList<Class<? extends ClickComponent>>();
         list.add(Pages.class);
         super.setChild(Headers.class, PROP_HEADERS, headers, list);
     }
 
+    @Override
     public List<Pages> getPagesList() {
         return super.getChildren(Pages.class);
     }
 
+    @Override
     public void addPages(Pages pages) {
         Collection<Class<? extends ClickComponent>> list = new ArrayList<Class<? extends ClickComponent>>();
         list.add(Pages.class);
         super.addAfter(PROP_PAGES, pages, list);//appendChild(PROP_PAGES, pages);
     }
 
+    @Override
     public void removePages(Pages pages) {
         super.removeChild(PROP_PAGES, pages);
     }
 
+    @Override
     public Format getFormat() {
         return super.getChild(Format.class);
     }
 
+    @Override
     public void setFormat(Format format) {
         if (format == null) {
             if (getFormat() != null) {
@@ -79,30 +87,36 @@ public class ClickAppImpl extends ClickComponentImpl implements ClickApp {
         }
     }
 
+    @Override
     public Mode getMode() {
         return super.getChild(Mode.class);
     }
 
+    @Override
     public void setMode(Mode mode) {
         Collection<Class<? extends ClickComponent>> list = new ArrayList<Class<? extends ClickComponent>>();
         list.add(Format.class);
         super.setChild(Mode.class, PROP_MODE, mode, list);
     }
 
+    @Override
     public Controls getControls() {
         return super.getChild(Controls.class);
     }
 
+    @Override
     public void setControls(Controls controls) {
         Collection<Class<? extends ClickComponent>> list = new ArrayList<Class<? extends ClickComponent>>();
         list.add(Mode.class);
         super.setChild(Controls.class, PROP_CONTROLS, controls, list);
     }
 
+    @Override
     public FileUploadService getFileUploadService() {
         return super.getChild(FileUploadService.class);
     }
 
+    @Override
     public void setFileUploadService(FileUploadService service) {
         if (service == null) {
             if (getFileUploadService() != null) {
@@ -115,10 +129,12 @@ public class ClickAppImpl extends ClickComponentImpl implements ClickApp {
         }
     }
 
+    @Override
     public LogService getLogService() {
         return super.getChild(LogService.class);
     }
 
+    @Override
     public void setLogService(LogService service) {
         if (service == null) {
             if (getLogService() != null) {
@@ -131,10 +147,12 @@ public class ClickAppImpl extends ClickComponentImpl implements ClickApp {
         }
     }
 
+    @Override
     public TemplateService getTemplateService() {
         return super.getChild(TemplateService.class);
     }
 
+    @Override
     public void setTemplateService(TemplateService service) {
         if (service == null) {
             if (getTemplateService() != null) {
@@ -147,32 +165,39 @@ public class ClickAppImpl extends ClickComponentImpl implements ClickApp {
         }
     }
 
+    @Override
     public String getCharset() {
         return super.getAttribute(ClickAttributes.CHARSET);
     }
 
+    @Override
     public void setCharse(String charset) {
         super.setAttribute(PROP_CHARSET, ClickAttributes.CHARSET, charset);
     }
 
+    @Override
     public String getLocale() {
         return super.getAttribute(ClickAttributes.LOCALE);
     }
 
+    @Override
     public void setLocale(String locale) {
         super.setAttribute(PROP_LOCALE, ClickAttributes.LOCALE, locale);
     }
 
+    @Override
     public List<PageInterceptor> getPageInterceptorList() {
         return super.getChildren(PageInterceptor.class);
     }
 
+    @Override
     public void addPageInterceptor(PageInterceptor pi) {
         Collection<Class<? extends ClickComponent>> list = new ArrayList<Class<? extends ClickComponent>>();
         list.add(PageInterceptor.class);
         super.addAfter(PROP_PAGE_INTERCEPTOR, pi, list);//appendChild(PROP_PAGES, pages);
     }
 
+    @Override
     public void removePageInterceptor(PageInterceptor pi) {
         super.removeChild(PROP_PAGE_INTERCEPTOR, pi);
     }

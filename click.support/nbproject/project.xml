@@ -357,9 +357,12 @@
                 <package>org.netbeans.modules.web.click.api</package>
                 <package>org.netbeans.modules.web.click.api.model</package>
                 <package>org.netbeans.modules.web.click.api.model.impl</package>
-                <package>org.netbeans.modules.web.click.api.model.utils</package>
                 <package>org.netbeans.modules.web.click.spi</package>
             </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/guava-14.0-rc1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/guava-14.0-rc1.jar</binary-origin>
+            </class-path-extension>
         </data>
     </configuration>
 </project>

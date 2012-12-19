@@ -46,14 +46,17 @@ public enum ClickAttributes implements Attribute {
         this.type = type;
     }
 
+    @Override
     public Class getType() {
         return type;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public Class getMemberType() {
         return null;
     }

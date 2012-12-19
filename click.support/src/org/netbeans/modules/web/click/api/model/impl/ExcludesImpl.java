@@ -23,14 +23,17 @@ public class ExcludesImpl extends ClickComponentImpl implements Excludes {
         this(model, createElementNS(model, ClickQNames.EXCLUDES));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public String getPattern() {
         return super.getAttribute(ClickAttributes.PATTERN);
     }
 
+    @Override
     public void setPattern(String pattern) {
         super.setAttribute(PROP_PATTERN, ClickAttributes.PATTERN, pattern);
     }

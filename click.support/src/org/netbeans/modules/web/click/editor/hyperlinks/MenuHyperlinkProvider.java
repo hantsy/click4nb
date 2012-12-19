@@ -40,6 +40,7 @@ public class MenuHyperlinkProvider implements HyperlinkProvider {
         lastDocument = null;
     }
 
+    @Override
     public boolean isHyperlinkPoint(Document document, int offset) {
 
         if (!(document instanceof BaseDocument)) {
@@ -55,7 +56,7 @@ public class MenuHyperlinkProvider implements HyperlinkProvider {
 
         try {
             TokenHierarchy hi = TokenHierarchy.create(doc.getText(0, doc.getLength()), XMLTokenId.language());
-            @SuppressWarnings("unchecked")
+            //@SuppressWarnings("unchecked")
             TokenSequence<XMLTokenId> ts = hi.tokenSequence();
 
             ts.move(offset);

@@ -26,30 +26,37 @@ public class ControlsImpl extends ClickComponentImpl implements Controls {
         super(model, createElementNS(model, ClickQNames.CONTROLS));
     }
     
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public List<Control> getControlList() {
         return super.getChildren(Control.class);
     }
 
+    @Override
     public void addControl(Control control) {
         super.appendChild(PROP_CONTROL, control);
     }
 
+    @Override
     public void removeControl(Control control) {
         super.removeChild(PROP_CONTROL, control);
     }
 
+    @Override
     public List<ControlSet> getControlSetList() {
         return super.getChildren(ControlSet.class);
     }
 
+    @Override
     public void addControlSet(ControlSet controlSet) {
         super.appendChild(PROP_CONTROL_SET, controlSet);
     }
 
+    @Override
     public void removeControlSet(ControlSet controlSet) {
         super.removeChild(PROP_CONTROL_SET, controlSet);
     }

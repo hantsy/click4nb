@@ -22,6 +22,7 @@ public class FileUploadServiceImpl extends AbstractServiceComponentImpl implemen
         super(model, createElementNS(model, ClickQNames.FILE_UPLOAD_SERVICE));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }

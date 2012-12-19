@@ -22,14 +22,17 @@ public class FormatImpl extends ClickComponentImpl implements Format {
         super(model, createElementNS(model, ClickQNames.FORMAT));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public String getClassName() {
        return super.getAttribute(ClickAttributes.CLASSNAME);
     }
 
+    @Override
     public void setClassName(String clsname) {
         super.setAttribute(PROP_CLASSNAME, ClickAttributes.CLASSNAME, clsname);
     }

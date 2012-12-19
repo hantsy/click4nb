@@ -43,14 +43,17 @@ public class ClickModelImpl extends AbstractDocumentModel<ClickComponent> implem
         return new ClickComponentUpdateVisitor();
     }
 
+    @Override
     public ClickComponent createComponent(ClickComponent parent, Element element) {
         return getFactory().create(element, parent);
     }
 
+    @Override
     public ClickApp getRootComponent() {
         return (ClickApp) click;
     }
 
+    @Override
     public ClickComponentFactory getFactory() {
         return factory;
     }

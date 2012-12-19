@@ -26,6 +26,7 @@ public abstract class ClickComponentImpl extends AbstractDocumentComponent<Click
         super(model, element);
     }
 
+    @Override
     public ClickModelImpl getModel(){
         return (ClickModelImpl)super.getModel();
     }
@@ -35,10 +36,12 @@ public abstract class ClickComponentImpl extends AbstractDocumentComponent<Click
         return model.getDocument().createElementNS(q.getNamespaceURI(), sq.getQualifiedName());
     }
 
+    @Override
     protected Object getAttributeValueOf(Attribute attr, String stringValue) {
         return stringValue;
     }
 
+    @Override
     protected void populateChildren(List<ClickComponent> children) {
         NodeList nl = getPeer().getChildNodes();
         if(nl != null) {
@@ -62,10 +65,12 @@ public abstract class ClickComponentImpl extends AbstractDocumentComponent<Click
             super(model, element);
         }
 
+        @Override
         public String getName() {
             return super.getAttribute(ClickAttributes.NAME);
         }
 
+        @Override
         public void setName(String name) {
             super.setAttribute(Nameable.NAME_PROPERTY, ClickAttributes.NAME, name);
         }

@@ -23,14 +23,17 @@ public class ControlImpl extends ClickComponentImpl implements Control{
         this(model, createElementNS(model, ClickQNames.CONTROL));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public String getClassName() {
         return super.getAttribute(ClickAttributes.CLASSNAME);
     }
 
+    @Override
     public void setClassName(String clz) {
         super.setAttribute(PROP_CLASSNAME, ClickAttributes.CLASSNAME, clz);
     }
