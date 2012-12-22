@@ -639,11 +639,11 @@ public final class ClickPageVisualPanel1 extends JPanel implements ActionListene
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             String name;
             Icon icon;
-            if (value == null) {
+            if (value == null ||"".equals(((String)value).trim())) {
                 name = ""; //NOI18N
                 icon = null;
             } else {
-                assert value instanceof SourceGroup;
+            //    assert value instanceof SourceGroup;
                 SourceGroup g = (SourceGroup) value;
                 name = g.getDisplayName();
                 icon = g.getIcon(false);

@@ -23,6 +23,7 @@ public class TemplateServiceImpl extends AbstractServiceComponentImpl implements
         super(model, createElementNS(model, ClickQNames.TEMPLATE_SERVICE));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }

@@ -23,14 +23,17 @@ public class PropertyImpl extends ClickComponentImpl.Named implements Property {
         this(model, createElementNS(model, ClickQNames.PROPERTY));
     }
 
+    @Override
     public void accept(ClickVisitor visitor) {
         visitor.accept(this);
     }
 
+    @Override
     public String getValue() {
         return super.getAttribute(ClickAttributes.VALUE);
     }
 
+    @Override
     public void setValue(String value) {
         super.setAttribute(PROP_VALUE, ClickAttributes.VALUE, value);
     }

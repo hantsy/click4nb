@@ -22,10 +22,12 @@ public class MenuComponentUpdater extends MenuVisitor.Default implements Compone
     public MenuComponentUpdater() {
     }
 
+    @Override
     public void update(MenuComponent target, MenuComponent child, Operation operation) {
         update(target, child, -1, operation);
     }
 
+    @Override
     public void update(MenuComponent target, MenuComponent child, int index, Operation operation) {
         this.target = target;
         this.index = index;

@@ -26,8 +26,8 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
     private ClickPageWizardPanel1 pagePanelData;
 
     /**
-     * Initialize panels representing individual wizard's steps and sets
-     * various properties for them influencing wizard appearance.
+     * Initialize panels representing individual wizard's steps and sets various
+     * properties for them influencing wizard appearance.
      */
     private WizardDescriptor.Panel[] getPanels() {
         Project project = Templates.getProject(wizard);
@@ -42,10 +42,10 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
 //        }
 
         if (panels == null) {
-            pagePanelData = new ClickPageWizardPanel1(project, groups);
+            pagePanelData = new ClickPageWizardPanel1(project, groups, wizard);
             panels = new WizardDescriptor.Panel[]{
-                        pagePanelData
-                    };
+                pagePanelData
+            };
             String[] steps = createSteps();
             for (int i = 0; i < panels.length; i++) {
                 Component c = panels[i].getComponent();
@@ -74,34 +74,42 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
         return panels;
     }
 
+    @Override
     public Set instantiate() throws IOException {
         return pagePanelData.generateFiles();
     }
 
+    @Override
     public void initialize(WizardDescriptor wizard) {
         this.wizard = wizard;
     }
 
+    @Override
     public void uninitialize(WizardDescriptor wizard) {
         panels = null;
     }
 
+    @Override
     public WizardDescriptor.Panel current() {
         return getPanels()[index];
     }
 
+    @Override
     public String name() {
         return index + 1 + ". from " + getPanels().length;
     }
 
+    @Override
     public boolean hasNext() {
         return index < getPanels().length - 1;
     }
 
+    @Override
     public boolean hasPrevious() {
         return index > 0;
     }
 
+    @Override
     public void nextPanel() {
         if (!hasNext()) {
             throw new NoSuchElementException();
@@ -109,6 +117,7 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
         index++;
     }
 
+    @Override
     public void previousPanel() {
         if (!hasPrevious()) {
             throw new NoSuchElementException();
@@ -117,9 +126,11 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
     }
 
     // If nothing unusual changes in the middle of the wizard, simply:
+    @Override
     public void addChangeListener(ChangeListener l) {
     }
 
+    @Override
     public void removeChangeListener(ChangeListener l) {
     }
 
@@ -127,27 +138,27 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
     // the number of panels changes in response to user input, then uncomment
     // the following and call when needed: fireChangeEvent();
     /*
-    private Set<ChangeListener> listeners = new HashSet<ChangeListener>(1); // or can use ChangeSupport in NB 6.0
-    public final void addChangeListener(ChangeListener l) {
-    synchronized (listeners) {
-    listeners.add(l);
-    }
-    }
-    public final void removeChangeListener(ChangeListener l) {
-    synchronized (listeners) {
-    listeners.remove(l);
-    }
-    }
-    protected final void fireChangeEvent() {
-    Iterator<ChangeListener> it;
-    synchronized (listeners) {
-    it = new HashSet<ChangeListener>(listeners).iterator();
-    }
-    ChangeEvent ev = new ChangeEvent(this);
-    while (it.hasNext()) {
-    it.next().stateChanged(ev);
-    }
-    }
+     private Set<ChangeListener> listeners = new HashSet<ChangeListener>(1); // or can use ChangeSupport in NB 6.0
+     public final void addChangeListener(ChangeListener l) {
+     synchronized (listeners) {
+     listeners.add(l);
+     }
+     }
+     public final void removeChangeListener(ChangeListener l) {
+     synchronized (listeners) {
+     listeners.remove(l);
+     }
+     }
+     protected final void fireChangeEvent() {
+     Iterator<ChangeListener> it;
+     synchronized (listeners) {
+     it = new HashSet<ChangeListener>(listeners).iterator();
+     }
+     ChangeEvent ev = new ChangeEvent(this);
+     while (it.hasNext()) {
+     it.next().stateChanged(ev);
+     }
+     }
      */
     // You could safely ignore this method. Is is here to keep steps which were
     // there before this wizard was instantiated. It should be better handled

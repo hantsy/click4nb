@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -52,10 +53,11 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
     private SourceGroup[] groups;
     private WizardDescriptor wizard;
 
-    public ClickPageWizardPanel1(Project project, SourceGroup[] groups) {
+    public ClickPageWizardPanel1(Project project, SourceGroup[] groups, WizardDescriptor wizard) {
+        log.log(Level.FINEST, "project@{0}, groups@{1}, wizard@{2}", new Object[]{project, groups, wizard});
         this.project = project;
         this.groups = groups;
-
+        this.wizard = wizard;
     }
 
     // Get the visual component for the panel. In this template, the component
@@ -210,25 +212,25 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
     public boolean isValid() {
         setErrorMessage(null);
         setInfoMessage(null);
-        if (component.getPageClassName() == null || "".equals(component.getPageClassName())) {
+        if (getComponent().getPageClassName() == null || "".equals(getComponent().getPageClassName())) {
             setErrorMessage("INFO_JavaTargetChooser_ProvideClassName");
             return false;
-        } else if (!isValidTypeIdentifier(component.getPageClassName())) {
+        } else if (!isValidTypeIdentifier(getComponent().getPageClassName())) {
             setErrorMessage("ERR_JavaTargetChooser_InvalidClass");
             return false;
-        } else if (!isValidPackageName(component.getPackageName())) {
+        } else if (!isValidPackageName(getComponent().getPackageName())) {
             setErrorMessage("ERR_JavaTargetChooser_InvalidPackage");
             return false;
-        } else if (!isValidPackage(component.getRootFolder(), component.getPackageName())) {
+        } else if (!isValidPackage(getComponent().getRootFolder(), getComponent().getPackageName())) {
             setErrorMessage("ERR_JavaTargetChooser_InvalidFolder");
             return false;
         } else if (existClass()) {
             setErrorMessage("INFO_PageClassExist");
             return false;
-        } else if (component.getPageClassSuperClassName() == null || "".equals(component.getPageClassSuperClassName().trim())) {
+        } else if (getComponent().getPageClassSuperClassName() == null || "".equals(getComponent().getPageClassSuperClassName().trim())) {
             setErrorMessage("INFO_JavaTargetChooser_SuperClassName");
             return false;
-        } else if (component.requireCreateTemplateFile() && (component.getTemplateFileName() == null || "".equals(component.getTemplateFileName().trim()))) {
+        } else if (getComponent().requireCreateTemplateFile() && (getComponent().getTemplateFileName() == null || "".equals(getComponent().getTemplateFileName().trim()))) {
             setErrorMessage("INFO_JavaTargetChooser_TemplateFilename");
             return false;
         }

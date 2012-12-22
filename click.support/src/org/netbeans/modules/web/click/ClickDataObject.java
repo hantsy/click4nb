@@ -5,7 +5,6 @@
 package org.netbeans.modules.web.click;
 
 import java.io.IOException;
-import java.io.InputStream;
 import org.netbeans.api.xml.cookies.CheckXMLCookie;
 import org.netbeans.api.xml.cookies.ValidateXMLCookie;
 import org.netbeans.modules.xml.api.XmlFileEncodingQueryImpl;
@@ -14,6 +13,7 @@ import org.netbeans.spi.xml.cookies.CheckXMLSupport;
 import org.netbeans.spi.xml.cookies.DataObjectAdapters;
 import org.netbeans.spi.xml.cookies.ValidateXMLSupport;
 import org.openide.filesystems.FileObject;
+import org.openide.filesystems.MIMEResolver;
 import org.openide.loaders.DataNode;
 import org.openide.loaders.DataObject;
 import org.openide.loaders.DataObjectExistsException;
@@ -26,15 +26,18 @@ import org.openide.util.Lookup;
 import org.openide.text.DataEditorSupport;
 import org.openide.util.NbBundle;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXParseException;
 
 @NbBundle.Messages({
     "ClickDataObject=ClickDataObject"
+        ,"CLICK_RESOVLVER_NAME=Click Config File"
 })
 @DataObject.Registration(
         displayName = "#ClickDataObject", 
         iconBase = "org/netbeans/modules/web/click/resources/click-icon.png", 
         mimeType = "text/x-click-app+xml")
+@MIMEResolver.Registration(
+        displayName = "#CLICK_RESOVLVER_NAME",
+        resource = "ClickResolver.xml")
 public class ClickDataObject extends MultiDataObject {
 
     public ClickDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {
