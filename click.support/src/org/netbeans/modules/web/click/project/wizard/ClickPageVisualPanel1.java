@@ -637,13 +637,13 @@ public final class ClickPageVisualPanel1 extends JPanel implements ActionListene
 
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            String name;
-            Icon icon;
-            if (value == null ||"".equals(((String)value).trim())) {
+            String name="";
+            Icon icon=null;
+            if (value == null) {
                 name = ""; //NOI18N
                 icon = null;
-            } else {
-            //    assert value instanceof SourceGroup;
+            } else if (value instanceof SourceGroup) {
+                assert value instanceof SourceGroup;
                 SourceGroup g = (SourceGroup) value;
                 name = g.getDisplayName();
                 icon = g.getIcon(false);

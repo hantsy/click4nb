@@ -130,7 +130,7 @@
     <folder name="Templates">
         <folder name="Click">
              <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Templates/Click"/>
-             <file name="ClickPage" url="project/template/Page.java.template">
+             <file name="ClickPage.java" url="project/template/Page.java.template">
                 <attr name="displayName" bundlevalue="org.netbeans.modules.web.click.Bundle#Templates/Click/ClickPage"/>
                 <attr name="iconBase" stringvalue="org/netbeans/modules/java/resources/class.gif"/>             
                 <attr name="instantiatingIterator" newvalue="org.netbeans.modules.web.click.project.wizard.ClickPageWizardIterator"/>

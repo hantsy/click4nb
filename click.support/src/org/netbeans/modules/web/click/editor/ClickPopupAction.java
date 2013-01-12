@@ -102,10 +102,10 @@ public class ClickPopupAction implements CodeGenerator {
         }
 
         private ClickPageWizardPanel1 initPanel() {
-            Project project = FileOwnerQuery.getOwner(getFO());
-            Sources sources = ProjectUtils.getSources(project);
-            SourceGroup[] srcGroups = sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_JAVA);
-            ClickPageWizardPanel1 localPanel = new ClickPageWizardPanel1(project, srcGroups , this);
+//            Project project = FileOwnerQuery.getOwner(getFO());
+//            Sources sources = ProjectUtils.getSources(project);
+//            SourceGroup[] srcGroups = sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_JAVA);
+            ClickPageWizardPanel1 localPanel = new ClickPageWizardPanel1( this);
             JComponent view = localPanel.getComponent();
 
             view.putClientProperty(

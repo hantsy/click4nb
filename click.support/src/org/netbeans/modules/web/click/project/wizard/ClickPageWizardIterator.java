@@ -6,33 +6,39 @@ package org.netbeans.modules.web.click.project.wizard;
 
 import java.awt.Component;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
-import org.netbeans.api.java.project.JavaProjectConstants;
-import org.netbeans.api.project.Project;
-import org.netbeans.api.project.ProjectUtils;
-import org.netbeans.api.project.SourceGroup;
-import org.netbeans.api.project.Sources;
-import org.netbeans.spi.project.ui.templates.support.Templates;
+import org.netbeans.api.templates.TemplateRegistration;
+import org.netbeans.api.templates.TemplateRegistrations;
 import org.openide.WizardDescriptor;
+import org.openide.util.NbBundle;
 
-public final class ClickPageWizardIterator implements WizardDescriptor.InstantiatingIterator {
+
+//@NbBundle.Messages({
+//    "CTL_Click=Apache Click"
+//})
+//@TemplateRegistrations(value = {
+//    @TemplateRegistration(category = "servlet-types", content = {"../template/Page.java.template"}, folder = "Click", displayName="#CTL_Click")})
+public final class ClickPageWizardIterator implements WizardDescriptor.InstantiatingIterator<WizardDescriptor> {
 
     private int index;
     private WizardDescriptor wizard;
-    private WizardDescriptor.Panel[] panels;
     private ClickPageWizardPanel1 pagePanelData;
+    private List<WizardDescriptor.Panel<WizardDescriptor>> panels;
+    // private Project project;
 
     /**
      * Initialize panels representing individual wizard's steps and sets various
      * properties for them influencing wizard appearance.
      */
-    private WizardDescriptor.Panel[] getPanels() {
-        Project project = Templates.getProject(wizard);
-        Sources sources = ProjectUtils.getSources(project);
-        SourceGroup[] groups = sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_JAVA);
+    private List<WizardDescriptor.Panel<WizardDescriptor>> getPanels() {
+
+//        Sources sources = ProjectUtils.getSources(project);
+//        SourceGroup[] groups = sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_JAVA);
 
 //        WizardDescriptor.Panel javaPanel;
 //        if (groups != null && groups.length > 0) {
@@ -42,13 +48,13 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
 //        }
 
         if (panels == null) {
-            pagePanelData = new ClickPageWizardPanel1(project, groups, wizard);
-            panels = new WizardDescriptor.Panel[]{
-                pagePanelData
-            };
+            pagePanelData = new ClickPageWizardPanel1(wizard);
+            panels = new ArrayList<WizardDescriptor.Panel<WizardDescriptor>>();
+            panels.add(pagePanelData);
+
             String[] steps = createSteps();
-            for (int i = 0; i < panels.length; i++) {
-                Component c = panels[i].getComponent();
+            for (int i = 0; i < panels.size(); i++) {
+                Component c = panels.get(i).getComponent();
                 if (steps[i] == null) {
                     // Default step name to component name of panel. Mainly
                     // useful for getting the name of the target chooser to
@@ -75,13 +81,14 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
     }
 
     @Override
-    public Set instantiate() throws IOException {
+    public Set<?> instantiate() throws IOException {
         return pagePanelData.generateFiles();
     }
 
     @Override
     public void initialize(WizardDescriptor wizard) {
         this.wizard = wizard;
+        //this.project = Templates.getProject(wizard);
     }
 
     @Override
@@ -90,18 +97,18 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
     }
 
     @Override
-    public WizardDescriptor.Panel current() {
-        return getPanels()[index];
+    public WizardDescriptor.Panel<WizardDescriptor> current() {
+        return getPanels().get(index);
     }
 
     @Override
     public String name() {
-        return index + 1 + ". from " + getPanels().length;
+        return index + 1 + ". from " + getPanels().size();
     }
 
     @Override
     public boolean hasNext() {
-        return index < getPanels().length - 1;
+        return index < getPanels().size() - 1;
     }
 
     @Override
@@ -175,12 +182,12 @@ public final class ClickPageWizardIterator implements WizardDescriptor.Instantia
             beforeSteps = new String[0];
         }
 
-        String[] res = new String[(beforeSteps.length - 1) + panels.length];
+        String[] res = new String[(beforeSteps.length - 1) + panels.size()];
         for (int i = 0; i < res.length; i++) {
             if (i < (beforeSteps.length - 1)) {
                 res[i] = beforeSteps[i];
             } else {
-                res[i] = panels[i - beforeSteps.length + 1].getComponent().getName();
+                res[i] = panels.get(i - beforeSteps.length + 1).getComponent().getName();
             }
         }
         return res;

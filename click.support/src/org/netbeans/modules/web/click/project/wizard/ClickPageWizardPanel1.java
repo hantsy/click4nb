@@ -16,8 +16,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import org.netbeans.api.java.project.JavaProjectConstants;
 import org.netbeans.api.project.Project;
+import org.netbeans.api.project.ProjectUtils;
 import org.netbeans.api.project.SourceGroup;
+import org.netbeans.api.project.Sources;
 import org.netbeans.modules.web.click.ClickConfigUtilities;
 import org.netbeans.modules.web.click.ClickConstants;
 import org.netbeans.modules.web.click.api.model.ClickApp;
@@ -30,6 +33,7 @@ import org.netbeans.modules.web.click.api.ClickProjectQuery;
 import org.netbeans.modules.web.click.api.model.ClickModelFactory;
 import org.netbeans.modules.xml.retriever.catalog.Utilities;
 import org.netbeans.modules.xml.xam.locator.CatalogModelException;
+import org.netbeans.spi.project.ui.templates.support.Templates;
 import org.openide.WizardDescriptor;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
@@ -53,10 +57,14 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
     private SourceGroup[] groups;
     private WizardDescriptor wizard;
 
-    public ClickPageWizardPanel1(Project project, SourceGroup[] groups, WizardDescriptor wizard) {
-        log.log(Level.FINEST, "project@{0}, groups@{1}, wizard@{2}", new Object[]{project, groups, wizard});
-        this.project = project;
-        this.groups = groups;
+    public ClickPageWizardPanel1( WizardDescriptor wizard) {
+        Project _project = Templates.getProject(wizard);
+        Sources _sources = ProjectUtils.getSources(_project);
+        SourceGroup[] _groups = _sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_JAVA);
+        
+        log.log(Level.FINEST, "project@{0}, groups@{1}, wizard@{2}", new Object[]{_project, _groups, wizard});
+        this.project = _project;
+        this.groups = _groups;
         this.wizard = wizard;
     }
 
@@ -253,10 +261,12 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
         return component.getRootFolder().getFileObject(packageFileName + component.getPageClassName() + ".java") != null;
     }
 
+    @Override
     public final void addChangeListener(ChangeListener l) {
         changeSupport.addChangeListener(l);
     }
 
+    @Override
     public final void removeChangeListener(ChangeListener l) {
         changeSupport.removeChangeListener(l);
     }
@@ -289,6 +299,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
     // settings object will be the WizardDescriptor, so you can use
     // WizardDescriptor.getProperty & putProperty to store information entered
     // by the user.
+    @Override
     public void readSettings(WizardDescriptor settings) {
         this.wizard = settings;
 
@@ -308,6 +319,7 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
 
     }
 
+    @Override
     public void storeSettings(WizardDescriptor settings) {
         Object value = wizard.getValue();
         if (WizardDescriptor.PREVIOUS_OPTION.equals(value) || WizardDescriptor.CANCEL_OPTION.equals(value)
@@ -319,10 +331,12 @@ public class ClickPageWizardPanel1 implements WizardDescriptor.Panel<WizardDescr
 
     }
 
+    @Override
     public void stateChanged(ChangeEvent e) {
         changeSupport.fireChange();
     }
 
+    @Override
     public boolean isFinishPanel() {
         if (isValid()) {
             return true;
