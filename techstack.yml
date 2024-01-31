@@ -1,0 +1,31 @@
+repo_name: hantsy/click4nb
+report_id: 74f7fb77336546c0827d2f5f9855b3f3
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-31T08:47:37+00:00'
+requested_by: hantsy
+provider: github
+branch: master
+detected_tools_count: 2
+tools:
+- name: Java
+  description: A concurrent, class-based, object-oriented, language specifically designed
+    to have as few implementation dependencies as possible
+  website_url: https://www.java.com
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/hantsy/click4nb
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/hantsy/click4nb
+  detection_source: Repo Metadata
